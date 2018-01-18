@@ -8,9 +8,9 @@ app.use('/', express.static(__dirname + '/www'));
 //bind the server to the 80 port
 //server.listen(3000);//for local test
 server.listen(process.env.PORT || 3000);//publish to heroku
-//server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
-//console.log('server started on port'+process.env.PORT || 3000);
-//handle the socket
+server.listen(process.env.OPENSHIFT_NODEJS_PORT || 3000);//publish to openshift
+console.log('server started on port'+process.env.PORT || 3000);
+handle the socket
 io.sockets.on('connection', function(socket) {
     //new user login
     socket.on('login', function(nickname) {
